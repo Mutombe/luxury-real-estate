@@ -34,16 +34,8 @@ function App() {
             <Route path="/properties/waterfront" element={<PropertiesPage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/properties/estates" element={<PropertiesPage />} />
-            {/* <Route path="/team" element={<TeamPage />} /> */}
-            {/* <Route path="/careers" element={<CareersPage />} /> */}
-            {/* <Route path="/press" element={<PressPage />} /> */}
-            {/* <Route path="/privacy" element={<PrivacyPage />} /> */}
-            {/* <Route path="/locations" element={<LocationsPage />} /> */}
-            {/* <Route path="/market-reports" element={<MarketReportsPage />} /> */}
             {/* <Route path="/guides" element={<GuidesPage />} /> */}
             <Route path="/contact" element={<ContactPage />} />
-            {/* <Route path="/products" element={<ProductsPage />} /> */}
-            {/* <Route path="/services" element={<ServicesPage />} /> */}
             <Route path="/about" element={<AboutPage />} />
           </Routes>
         </AnimatePresence>

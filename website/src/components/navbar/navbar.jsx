@@ -1,9 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { useNavigate } from 'react-router-dom'
 import { Menu, X, Home, Building2, Info, Phone, Search, User, Bell, ChevronDown, MapPin, Calendar, Star } from 'lucide-react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate()
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -72,6 +74,7 @@ const Navbar = () => {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={()=>navigate("/contact")}
                 className="text-gray-300 hover:text-white transition-colors duration-200 hidden md:flex items-center"
               >
                 <Calendar size={14} className="mr-1" />
@@ -115,7 +118,6 @@ const Navbar = () => {
             >
               <span className="font-serif text-2xl font-bold bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent">Luxury</span>
               <span className="font-serif text-2xl font-light text-gray-800"> Real Estate</span>
-              <Star className="text-yellow-500 ml-1" size={12} />
             </motion.div>
 
             {/* Search button (mobile) */}
@@ -193,6 +195,7 @@ const Navbar = () => {
               <motion.button 
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={()=>navigate("/contact")}
                 className="ml-2 px-4 py-2 bg-gradient-to-r from-red-700 to-red-500 text-white rounded-md shadow-md hover:shadow-lg transition-all duration-300"
               >
                 Schedule Viewing
@@ -314,7 +317,7 @@ const Navbar = () => {
                 <div className="pt-4 pb-2">
                   <motion.a
                     whileTap={{ scale: 0.95 }}
-                    href="/schedule"
+                    href="/contact"
                     className="block mx-3 px-4 py-3 bg-gradient-to-r from-red-700 to-red-500 text-white text-center rounded-md shadow-md"
                   >
                     Schedule Viewing
@@ -325,7 +328,7 @@ const Navbar = () => {
                   <div className="flex items-center justify-between px-3">
                     <motion.a
                       whileTap={{ scale: 0.95 }}
-                      href="/login"
+                      href="/contact"
                       className="flex items-center text-gray-700"
                     >
                       <User size={16} className="mr-1" />
@@ -334,7 +337,7 @@ const Navbar = () => {
                     
                     <motion.a
                       whileTap={{ scale: 0.95 }}
-                      href="/schedule-tour"
+                      href="/contact"
                       className="flex items-center text-gray-700"
                     >
                       <Calendar size={16} className="mr-1" />

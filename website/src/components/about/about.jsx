@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'framer-motion';
+import { useNavigate } from 'react-router-dom'
 import {
   Users,
   Home,
@@ -47,6 +48,7 @@ const AboutPage = () => {
   const [lastScrollY, setLastScrollY] = useState(0);
   const [scrollDirection, setScrollDirection] = useState('up');
   const [showContactForm, setShowContactForm] = useState(false);
+  const navigate = useNavigate()
   
   // Refs
   const statsRef = useRef(null);
@@ -145,27 +147,27 @@ const AboutPage = () => {
   const team = [
     {
       id: 1,
-      name: "Sarah Johnson",
+      name: "Mr Mhute",
       role: "CEO & Founder",
       image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/api/placeholder/500/600')",
       bio: "15+ years of luxury real estate experience",
       expertise: ["Waterfront Properties", "Luxury Estates", "Market Analysis"],
-      achievements: ["Top 1% of Agents Nationwide", "Over $1B in Sales"],
+      achievements: ["Top 1% of Agents Nationwide", "Multiple in Sales"],
       quote: "Every home tells a unique story. Our job is to help you find the one that speaks to you.",
       social: {
         linkedin: "#",
         twitter: "#",
-        email: "sarah@luxuryestates.com"
+        email: "mhute@luxuryestates.com"
       }
     },
     {
       id: 2,
-      name: "Michael Chen",
+      name: "Michael Muchara",
       role: "Head of Sales",
       image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/api/placeholder/500/600')",
       bio: "Top-performing agent for 5 consecutive years",
       expertise: ["Urban Properties", "Investment Opportunities", "Negotiation"],
-      achievements: ["$500M+ Career Sales", "Broker of the Year 2024"],
+      achievements: ["Multiple Career Sales", "Broker of the Year 2024"],
       quote: "The right property isn't just an asset—it's a foundation for your future.",
       social: {
         linkedin: "#",
@@ -175,11 +177,11 @@ const AboutPage = () => {
     },
     {
       id: 3,
-      name: "Emily Rodriguez",
+      name: "Emily Maramba",
       role: "Property Consultant",
       image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/api/placeholder/500/600')",
       bio: "Specialist in luxury waterfront properties",
-      expertise: ["Beachfront Homes", "Vacation Properties", "Client Relations"],
+      expertise: ["Homes", "Vacation Properties", "Client Relations"],
       achievements: ["Featured in Luxury Home Magazine", "Most Dedicated Agent Award"],
       quote: "Finding your dream home is a journey, and I'm honored to be your guide.",
       social: {
@@ -188,43 +190,29 @@ const AboutPage = () => {
         email: "emily@luxuryestates.com"
       }
     },
-    {
-      id: 4,
-      name: "David Wilson",
-      role: "Marketing Director",
-      image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/api/placeholder/500/600')",
-      bio: "Former tech executive with creative vision",
-      expertise: ["Digital Marketing", "Property Showcase", "Brand Development"],
-      achievements: ["Increased lead generation by 200%", "Innovator of the Year 2023"],
-      quote: "In a crowded market, exceptional properties deserve exceptional visibility.",
-      social: {
-        linkedin: "#",
-        twitter: "#",
-        email: "david@luxuryestates.com"
-      }
-    }
+
   ];
 
   const milestones = [
     {
       year: 2008,
-      title: "Founded in Miami",
-      description: "Started with a team of 3 agents specializing in waterfront properties."
+      title: "Founded in Harare",
+      description: "Started with a team of 3 agents specializing in Flat properties."
     },
     {
       year: 2012,
-      title: "Expansion to New York",
-      description: "Opened our second office in Manhattan's Upper East Side."
+      title: "Expansion to Harare",
+      description: "Opened our second office in Avondale's Upper East Side."
     },
     {
       year: 2015,
-      title: "$500M Sales Milestone",
-      description: "Reached half a billion in total sales within our first 7 years."
+      title: "Multiple Sales Milestone",
+      description: "Made a lot sales within our first 7 years."
     },
     {
       year: 2018,
-      title: "International Partnerships",
-      description: "Established exclusive partnerships with luxury brokerages in Europe."
+      title: "Partnerships",
+      description: "Established exclusive partnerships with luxury brokerages in Harare."
     },
     {
       year: 2021,
@@ -234,7 +222,7 @@ const AboutPage = () => {
     {
       year: 2024,
       title: "Today",
-      description: "Operating in 5 major cities with a team of over 50 elite agents."
+      description: "Operating in 5 major cities with a team of over 10 elite agents."
     }
   ];
 
@@ -345,7 +333,7 @@ const AboutPage = () => {
                 </nav>
                 
                 <div className="mt-8 pt-6 border-t border-gray-100">
-                  <button className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+                  <button className="flex items-center justify-center gap-2 w-full px-4 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors" onClick={()=>navigate("/contact")}>
                     <PhoneCall size={18} />
                     <span>Schedule a Consultation</span>
                   </button>
@@ -904,7 +892,7 @@ const AboutPage = () => {
           
           <div className="text-center">
             <p className="text-gray-600 text-sm">
-              © {new Date().getFullYear()} Luxury Estates. All rights reserved.
+              © {new Date().getFullYear()} Luxury Real Estate. All rights reserved.
             </p>
           </div>
         </div>

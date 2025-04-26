@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { AnimatePresence } from 'framer-motion';
 import { motion } from 'framer-motion';
+import { Typography, Grid, TextField, Button } from '@mui/material';
 import {
   Facebook,
   Twitter,
@@ -28,17 +29,17 @@ const Footer = () => {
 
   const footerLinks = {
     properties: [
-      { name: 'Buy', href: '/properties?type=buy' },
-      { name: 'Rent', href: '/properties?type=rent' },
-      { name: 'Sell', href: '/sell' },
-      { name: 'New Developments', href: '/new-developments' },
-      { name: 'Featured Listings', href: '/featured' },
+      { name: 'Buy', href: '/properties/estates' },
+      { name: 'Rent', href: '/properties/estates' },
+      { name: 'Sell', href: '/properties/estates' },
+      { name: 'New Developments', href: '' },
+      { name: 'Featured Listings', href: '/properties/estates' },
     ],
     company: [
       { name: 'About Us', href: '/about' },
       { name: 'Our Team', href: '/about' },
-      { name: 'Careers', href: '/careers' },
-      { name: 'Press', href: '/press' },
+      { name: 'Careers', href: '/contact' },
+      { name: 'Press', href: '/about' },
       { name: 'Contact', href: '/contact' },
     ],
     resources: [
@@ -192,6 +193,11 @@ const Footer = () => {
           </div>
         </div>
       </div>
+      <div className="mt-4 text-center pb-10">
+            <Typography variant="body2" className="!text-blue-100">
+              Developed by <a href="https://zettabyte.co.zw" className="!text-red-300 hover:!text-white !transition-colors" target="_blank" rel="noopener noreferrer">Zettabyte</a>
+            </Typography>
+          </div>
     </footer>
   );
 };

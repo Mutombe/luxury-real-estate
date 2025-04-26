@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
+import { Link, useNavigate } from 'react-router-dom';
 import { Search, Star, Building2, Award, Shield, ArrowRight, MapPin, ChevronRight, Heart, Share2, Calendar, Compass, Maximize, Users, ChevronDown, Check } from 'lucide-react';
 
 const HomePage = () => {
   const [activeTab, setActiveTab] = useState('buy');
   const [scrollPosition, setScrollPosition] = useState(0);
+  const navigate = useNavigate()
   
   useEffect(() => {
     const handleScroll = () => {
@@ -24,66 +26,66 @@ const HomePage = () => {
   const featuredProperties = [
     {
       id: 1,
-      title: "Luxury Penthouse",
-      location: "Downtown Manhattan",
+      title: "Luxury Flat",
+      location: "Waterfalls",
       price: "$5,200,000",
       beds: 4,
       baths: 3,
       sqft: "3,500",
       featured: true,
       new: false,
-      image: "/api/placeholder/800/600"
+      image: "/flat.webp"
     },
     {
       id: 2,
-      title: "Beachfront Villa",
-      location: "Malibu, California",
+      title: "Villa",
+      location: "Borrowdale",
       price: "$8,900,000",
       beds: 5,
       baths: 6,
       sqft: "6,200",
       featured: true,
       new: true,
-      image: "/api/placeholder/800/600"
+      image: "/villa.webp"
     },
     {
       id: 3,
       title: "Modern Hillside Estate",
-      location: "Beverly Hills",
+      location: "Hillside, Harare",
       price: "$12,500,000",
       beds: 7,
       baths: 9,
       sqft: "10,800",
       featured: false,
       new: false,
-      image: "/api/placeholder/800/600"
+      image: "/estate.jpg"
     }
   ];
 
   const testimonials = [
     {
-      name: "Jonathan Parker",
+      name: "Jonathan Mlambo",
       role: "CEO, Parker Industries",
-      text: "The team at LuxuryEstate provided exceptional service throughout our property search. Their attention to detail and market knowledge is unmatched.",
-      avatar: "/api/placeholder/60/60"
+      text: "The team at Luxury Real Estate provided exceptional service throughout our property search. Their attention to detail and market knowledge is unmatched.",
+      avatar: "/user.jpg"
     },
     {
-      name: "Sophia Reynolds",
+      name: "Sophia Maramba",
       role: "Interior Designer",
-      text: "Working with LuxuryEstate has been a seamless experience. They understand the luxury market and consistently deliver above expectations.",
-      avatar: "/api/placeholder/60/60"
+      text: "Working with Luxury Real Estate has been a seamless experience. They understand the luxury market and consistently deliver above expectations.",
+      avatar: "/user.jpg"
     },
     {
-      name: "Michael Zhang",
+      name: "Michael Zingoni",
       role: "Tech Entrepreneur",
       text: "Their personalized approach to finding our dream home was remarkable. Every property shown matched our criteria perfectly.",
-      avatar: "/api/placeholder/60/60"
+      avatar: "/user.jpg"
     }
   ];
 
   const categories = [
-    { name: "Waterfront", icon: <Compass size={20} />, count: 24 },
-    { name: "Penthouses", icon: <Building2 size={20} />, count: 18 },
+    { name: "Villas", icon: <Compass size={20} />, count: 24 },
+    { name: "Flats", icon: <Building2 size={20} />, count: 18 },
     { name: "Estates", icon: <Maximize size={20} />, count: 32 },
     { name: "Family Homes", icon: <Users size={20} />, count: 47 }
   ];
@@ -170,7 +172,7 @@ className="w-full h-full bg-[url('https://images.unsplash.com/photo-160060768793
                 <div className="relative md:w-48">
                   <select className="appearance-none w-full px-4 py-3 rounded-lg border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent bg-white">
                     <option>Property Type</option>
-                    <option>Penthouse</option>
+                    <option>Flats</option>
                     <option>Villa</option>
                     <option>Mansion</option>
                     <option>Estate</option>
@@ -202,10 +204,10 @@ className="w-full h-full bg-[url('https://images.unsplash.com/photo-160060768793
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="flex justify-center space-x-12 lg:space-x-24">
               {[
-                { label: "Properties", value: "2,500+" },
-                { label: "Happy Clients", value: "1,200+" },
-                { label: "Cities", value: "120+" },
-                { label: "Awards", value: "35+" }
+                { label: "Properties", value: "500+" },
+                { label: "Happy Clients", value: "200+" },
+                { label: "Cities", value: "7+" },
+                { label: "Awards", value: "5+" }
               ].map((stat, index) => (
                 <div key={index} className="text-center">
                   <p className="text-xl lg:text-2xl font-bold text-gray-900">{stat.value}</p>
@@ -269,7 +271,7 @@ className="w-full h-full bg-[url('https://images.unsplash.com/photo-160060768793
                 viewport={{ once: true }}
                 className="text-3xl md:text-4xl font-bold font-serif mb-4"
               >
-                Why Choose <span className="text-red-600">LuxuryEstate</span>
+                Why Choose <span className="text-red-600">Luxury Real Estate</span>
               </motion.h2>
               <p className="text-gray-600 mb-6">
                 We go beyond the traditional real estate experience, offering personalized service and unparalleled expertise in luxury properties.
@@ -277,6 +279,7 @@ className="w-full h-full bg-[url('https://images.unsplash.com/photo-160060768793
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={()=>navigate("/about")}
                 className="inline-flex items-center text-red-600 font-medium"
               >
                 Learn More <ChevronRight size={16} className="ml-1" />
@@ -384,6 +387,7 @@ className="w-full h-full bg-[url('https://images.unsplash.com/photo-160060768793
                     <motion.button
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
+                      onClick={()=>navigate("/properties/estates")}
                       className="text-sm text-red-600 font-medium flex items-center"
                     >
                       Details <ChevronRight size={14} className="ml-1" />
@@ -475,6 +479,7 @@ className="w-full h-full bg-[url('https://images.unsplash.com/photo-160060768793
               <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
+                onClick={()=>navigate("/contact")}
                 className="px-8 py-4 bg-gradient-to-r from-red-700 to-red-500 text-white rounded-lg shadow-lg hover:shadow-xl transition-all"
               >
                 Schedule Consultation

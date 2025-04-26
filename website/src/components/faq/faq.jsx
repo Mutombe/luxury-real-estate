@@ -1,11 +1,13 @@
 import React, { useState, useMemo } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown, Search, Plus, Minus } from 'lucide-react';
+import { useNavigate } from 'react-router-dom'
 
 const FAQPage = () => {
   const [searchQuery, setSearchQuery] = useState('');
   const [activeCategory, setActiveCategory] = useState('all');
   const [expandedItems, setExpandedItems] = useState(new Set());
+  const navigate = useNavigate()
 
   const faqData = {
     buying: [
@@ -227,7 +229,7 @@ const FAQPage = () => {
             <p className="text-gray-600">
               Our luxury real estate specialists are here to help you with any questions you may have.
             </p>
-            <button className="px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors">
+            <button className="px-8 py-3 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors" onClick={()=>navigate("/contact")}>
               Contact Us
             </button>
           </motion.div>
