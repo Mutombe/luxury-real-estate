@@ -32,7 +32,7 @@ const Footer = () => {
       { name: 'Buy', href: '/properties/estates' },
       { name: 'Rent', href: '/properties/estates' },
       { name: 'Sell', href: '/properties/estates' },
-      { name: 'New Developments', href: '' },
+      { name: 'New Developments', href: '/' },
       { name: 'Featured Listings', href: '/properties/estates' },
     ],
     company: [
@@ -119,7 +119,7 @@ const Footer = () => {
           {/* Brand Column */}
           <div className="lg:col-span-2">
             <div className="space-y-6">
-              <h2 className="text-2xl font-bold text-red-600">LuxuryEstate</h2>
+              <h2 className="text-2xl font-bold text-red-600">Luxury Real Estate</h2>
               <p className="text-gray-400 max-w-md">
                 Your trusted partner in luxury real estate, providing exceptional properties 
                 and unparalleled service to discerning clients worldwide.
