@@ -8,6 +8,7 @@ import {
   Star,
   CheckCircle,
     CalendarIcon,
+    Facebook
   Linkedin,
   Mail,
   Twitter,
@@ -879,10 +880,10 @@ const AboutPage = () => {
       <footer className="py-8 bg-gray-100">
         <div className="max-w-md mx-auto px-4">
           <div className="flex justify-center space-x-6 mb-6">
-            <a href="#" className="text-gray-600 hover:text-red-600">
-              <Twitter size={22} />
+            <a href="https://www.facebook.com/LuxuryRealEsate" className="text-gray-600 hover:text-red-600">
+              <Facebook size={22} />
             </a>
-            <a href="#" className="text-gray-600 hover:text-red-600">
+            <a href="https://www.linkedin.com/company/luxury-real-estate-zimbabwe/ " className="text-gray-600 hover:text-red-600">
               <Linkedin size={22} />
             </a>
             <a href="#" className="text-gray-600 hover:text-red-600">

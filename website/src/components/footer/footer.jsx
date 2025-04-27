@@ -55,10 +55,9 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: <Facebook size={20} />, href: '#', label: 'Facebook' },
-    { icon: <Twitter size={20} />, href: '#', label: 'Twitter' },
+    { icon: <Facebook size={20} />, href: 'https://www.facebook.com/profile.php?id=61575502449647', label: 'Facebook' },
     { icon: <Instagram size={20} />, href: '#', label: 'Instagram' },
-    { icon: <Linkedin size={20} />, href: '#', label: 'LinkedIn' },
+    { icon: <Linkedin size={20} />, href: 'https://www.linkedin.com/company/luxury-real-estate-zimbabwe/ ', label: 'LinkedIn' },
   ];
 
   return (
