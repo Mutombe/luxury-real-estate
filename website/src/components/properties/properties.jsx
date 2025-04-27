@@ -25,6 +25,7 @@ import {
   Info,
   Bookmark
 } from 'lucide-react';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const PropertiesPage = () => {
   // State hooks
@@ -43,7 +44,8 @@ const PropertiesPage = () => {
   const [activeTab, setActiveTab] = useState('all');
   const [showMobileSearch, setShowMobileSearch] = useState(false);
   const [expandedPropertyId, setExpandedPropertyId] = useState(null);
-  const [drawer, setDrawer] = useState(null); // null, 'filters', 'sort', 'menu'
+  const [drawer, setDrawer] = useState(null);
+  const navigate = useNavigate();
   
   // Refs
   const headerRef = useRef(null);
@@ -555,6 +557,7 @@ const PropertiesPage = () => {
                             </div>
                             <motion.button 
                               whileTap={{ scale: 0.95 }}
+                              onClick={() => navigate(`/contact`)}
                               className="flex items-center gap-2 px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors"
                             >
                               <Phone size={16} />
@@ -580,7 +583,7 @@ const PropertiesPage = () => {
         transition={{ delay: 0.5 }}
       >
         <div className="grid grid-cols-5 h-16">
-          <button className="flex flex-col items-center justify-center text-red-600">
+          <button className="flex flex-col items-center justify-center text-red-600" onClick={() => navigate('/')}>
             <Home size={22} className="mb-1" />
             <span className="text-xs">Home</span>
           </button>
@@ -590,6 +593,7 @@ const PropertiesPage = () => {
           </button>
           <motion.button 
             whileTap={{ scale: 0.9 }}
+            onClick={() => toggleDrawer('map')}
             className="flex flex-col items-center justify-center"
           >
             <div className="w-12 h-12 bg-red-600 rounded-full flex items-center justify-center -mt-4">
@@ -597,7 +601,7 @@ const PropertiesPage = () => {
             </div>
             <span className="text-xs mt-1">Map</span>
           </motion.button>
-          <button className="flex flex-col items-center justify-center text-gray-500">
+          <button className="flex flex-col items-center justify-center text-gray-500" onClick={() => toggleDrawer('favorites')}>
             <Heart size={22} className="mb-1" />
             <span className="text-xs">Saved</span>
           </button>
@@ -840,15 +844,15 @@ const PropertiesPage = () => {
                 <nav>
                   <ul className="space-y-1">
                     {[
-                      { name: 'Home', icon: <Home size={20} /> },
-                      { name: 'Properties', icon: <MapPin size={20} /> },
-                      { name: 'Saved Searches', icon: <Bookmark size={20} /> },
-                      { name: 'History', icon: <Clock size={20} /> },
-                      { name: 'Contact Us', icon: <Phone size={20} /> },
-                      { name: 'About', icon: <Info size={20} /> },
+                      { name: 'Home', icon: <Home size={20} />, link: '/' },
+                      { name: 'Properties', icon: <MapPin size={20} />,  link: '/' },
+                      { name: 'Saved Searches', icon: <Bookmark size={20} />,  link: '/' },
+                      { name: 'History', icon: <Clock size={20} />,  link: '/' },
+                      { name: 'Contact Us', icon: <Phone size={20} />,  link: '/contact' },
+                      { name: 'About', icon: <Info size={20} />,  link: '/about' },
                     ].map((item, index) => (
                       <li key={index}>
-                        <button className="flex items-center gap-3 w-full px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700">
+                        <button className="flex items-center gap-3 w-full px-4 py-3 rounded-lg hover:bg-gray-50 text-gray-700" onClick={() => navigate(item.link)}>
                           {item.icon}
                           <span>{item.name}</span>
                         </button>

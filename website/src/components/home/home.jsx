@@ -183,6 +183,7 @@ className="w-full h-full bg-[url('https://images.unsplash.com/photo-160060768793
               
               <motion.button 
                 whileHover={{ scale: 1.02 }}
+                onClick={()=>navigate("/properties/estates")}
                 whileTap={{ scale: 0.98 }}
                 className="px-6 md:px-8 py-3 bg-gradient-to-r from-red-700 to-red-500 text-white rounded-lg hover:shadow-lg transition-all flex items-center justify-center gap-2"
               >

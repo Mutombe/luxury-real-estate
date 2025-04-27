@@ -29,9 +29,9 @@ function App() {
         <AnimatePresence mode="wait">
           <Routes>
             <Route path="/" element={<HomePage />} />
-            <Route path="/properties/penthouses" element={<PropertiesPage />} />
-            <Route path="/properties/luxury-homes" element={<PropertiesPage />} />
-            <Route path="/properties/waterfront" element={<PropertiesPage />} />
+            <Route path="/properties/homes" element={<PropertiesPage />} />
+            <Route path="/properties/villas" element={<PropertiesPage />} />
+            <Route path="/properties/flats" element={<PropertiesPage />} />
             <Route path="/faq" element={<FAQPage />} />
             <Route path="/properties/estates" element={<PropertiesPage />} />
             {/* <Route path="/guides" element={<GuidesPage />} /> */}

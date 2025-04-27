@@ -35,7 +35,7 @@ const Navbar = () => {
       icon: <Building2 size={18} />, 
       path: '/properties',
       dropdown: true,
-      items: ['Luxury Homes', 'Penthouses', 'Waterfront', 'Estates']
+      items: ['Homes', 'Flats', 'Villas', 'Estates']
     },
     { 
       name: 'About', 
@@ -67,7 +67,7 @@ const Navbar = () => {
               <div className="flex items-center text-gray-300">
                 <Phone size={14} className="mr-1" />
                 <span className="hidden md:inline">Call Us:</span>
-                <span className="ml-1 text-white">+263 77 562 5292 LUXURY</span>
+                <span className="ml-1 text-white">+263 77 260 6495 LUXURY</span>
               </div>
             </div>
             <div className="flex items-center space-x-4">
@@ -82,6 +82,7 @@ const Navbar = () => {
               </motion.button>
               <motion.button 
                 whileHover={{ scale: 1.05 }}
+                onClick={()=>navigate("/contact")}
                 whileTap={{ scale: 0.95 }}
                 className="text-gray-300 hover:text-white transition-colors duration-200 hidden md:flex items-center"
               >
@@ -90,6 +91,7 @@ const Navbar = () => {
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
+                onClick={()=>navigate("/contact")}
                 whileTap={{ scale: 0.95 }}
                 className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center"
               >

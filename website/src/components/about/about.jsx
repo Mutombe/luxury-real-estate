@@ -301,7 +301,7 @@ const AboutPage = () => {
             >
               <div className="p-4 border-b border-gray-100">
                 <div className="flex justify-between items-center">
-                  <h3 className="text-lg font-bold text-red-600">Luxury Estates</h3>
+                  <h3 className="text-lg font-bold text-red-600">Luxury Real Estate</h3>
                   <button onClick={() => setShowMobileMenu(false)}>
                     <X size={24} className="text-gray-500" />
                   </button>
@@ -419,7 +419,7 @@ const AboutPage = () => {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Call us directly</p>
-                      <p className="font-medium">(800) 555-1234</p>
+                      <p className="font-medium">+263 77 260 6495</p>
                     </div>
                   </div>
                   <div className="flex items-center gap-3">
@@ -428,7 +428,7 @@ const AboutPage = () => {
                     </div>
                     <div>
                       <p className="text-sm text-gray-500">Main Office</p>
-                      <p className="font-medium">123 Luxury Ave, Miami, FL</p>
+                      <p className="font-medium">Suite 7, 1st Floor, G.T Bain Centre, 55 King George Rd, Avondale, Harare, Zimbabwe</p>
                     </div>
                   </div>
                 </div>

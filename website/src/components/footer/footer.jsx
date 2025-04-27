@@ -51,10 +51,6 @@ const Footer = () => {
     ],
     locations: [
       { name: 'Harare', href: '/contact' },
-      { name: 'Masvingo', href: '/contact' },
-      { name: 'Mutare', href: '/contact' },
-      { name: 'Kwekwe', href: '/contact' },
-      { name: 'Bulawayo', href: '/contact' },
     ]
   };
 
@@ -136,11 +132,11 @@ const Footer = () => {
                 </div>
                 <div className="flex items-center gap-3 text-gray-400">
                   <Mail size={18} />
-                  <span>contact@luxuryrealestate.com</span>
+                  <span>info@luxuryrealestate.co.zw</span>
                 </div>
                 <div className="flex items-start gap-3 text-gray-400">
                   <MapPin size={18} className="flex-shrink-0 mt-1" />
-                  <span>123 Avondale Avenue, Harare, Zimbabwe</span>
+                  <span>Suite 7, 1st Floor, G.T Bain Centre, 55 King George Rd, Avondale, Harare</span>
                 </div>
               </div>
             </div>
@@ -174,7 +170,7 @@ const Footer = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4">
             <div className="text-gray-400 text-sm">
-              © {new Date().getFullYear()} LuxuryEstate. All rights reserved.
+              © {new Date().getFullYear()} Luxury Real Estate. All rights reserved.
             </div>
             
             {/* Social Links */}

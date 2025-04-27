@@ -38,28 +38,12 @@ const ContactPage = () => {
   const offices = [
     {
       city: "Harare",
-      address: "123 Avenue Avondale, Harare, Zimbabwe",
-      phone: "+263 77 562 5292",
-      email: "admin@luxuryrealestate.com",
+      address: "Suite 7, 1st Floor, G.T Bain Centre, 55 King George Rd, Avondale, Harare, Zimbabwe",
+      phone: "+263 77 260 6495",
+      email: "info@luxuryrealestate.co.zw",
       hours: "Mon-Fri: 9:00 AM - 6:00 PM",
       coordinates: [-17.8252, 31.0335] // Latitude, Longitude for Harare
     },
-    {
-      city: "Masvingo",
-      address: "789 Robert Mugabe Way, Masvingo, Zimbabwe",
-      phone: "+263 77 562 5292",
-      email: "admin@luxuryrealestate.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
-      coordinates: [-20.0637, 30.8277] // Latitude, Longitude for Masvingo
-    },
-    {
-      city: "Mutare",
-      address: "456 Main Street, Mutare, Zimbabwe",
-      phone: "+263 77 562 5292",
-      email: "admin@luxuryrealestate.com",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
-      coordinates: [-18.9765, 32.6505] // Latitude, Longitude for Mutare
-    }
   ];
 
   // Initialize the map when component mounts
@@ -189,21 +173,21 @@ const ContactPage = () => {
             
             <nav className="flex-1">
               <ul className="space-y-6 text-center">
-                <li><a href="#" className="text-white text-xl block py-2">Home</a></li>
-                <li><a href="#" className="text-white text-xl block py-2">Properties</a></li>
-                <li><a href="#" className="text-white text-xl block py-2">Agents</a></li>
-                <li><a href="#" className="text-red-400 text-xl font-medium block py-2">Contact</a></li>
+                <li><a href="/" className="text-white text-xl block py-2">Home</a></li>
+                <li><a href="/properties/estates" className="text-white text-xl block py-2">Properties</a></li>
+                <li><a href="/contact" className="text-white text-xl block py-2">Agents</a></li>
+                <li><a href="/contact" className="text-red-400 text-xl font-medium block py-2">Contact</a></li>
               </ul>
             </nav>
             
             <div className="space-y-4 mt-auto">
               <div className="flex items-center justify-center gap-2 text-white">
                 <Phone size={18} />
-                <span>+263 77 562 5292</span>
+                <span>+263 77 260 6495</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-white">
                 <Mail size={18} />
-                <span>contact@luxuryrealestate.com</span>
+                <span>info@luxuryrealestate.co.zw</span>
               </div>
             </div>
           </div>
@@ -428,7 +412,7 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold">Email</h3>
-                      <p className="text-gray-600">contact@luxuryrealestate.com</p>
+                      <p className="text-gray-600">Info@luxuryrealestate.co.zw</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
