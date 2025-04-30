@@ -26,39 +26,39 @@ const HomePage = () => {
   const featuredProperties = [
     {
       id: 1,
-      title: "Luxury Flat",
-      location: "Waterfalls",
-      price: "$5,200,000",
+      title: "4-Bedroom House",
+      location: "Glenara Avenue, Highlands, Harare North, Harare",
+      price: "$850, 000",
       beds: 4,
-      baths: 3,
-      sqft: "3,500",
+      baths: 2,
+      sqft: "4,949",
       featured: true,
       new: false,
-      image: "/flat.webp"
+      image: "/grenara.webp"
     },
     {
       id: 2,
-      title: "Villa",
-      location: "Borrowdale",
-      price: "$8,900,000",
-      beds: 5,
-      baths: 6,
-      sqft: "6,200",
+      title: "7 Roomed House",
+      location: "Chitungwiza, Mashonaland East",
+      price: "$32,000",
+      beds: 3,
+      baths: 2,
+      sqft: "200",
       featured: true,
       new: true,
-      image: "/villa.webp"
+      image: "/unitk.webp"
     },
     {
       id: 3,
-      title: "Modern Hillside Estate",
-      location: "Hillside, Harare",
-      price: "$12,500,000",
-      beds: 7,
-      baths: 9,
-      sqft: "10,800",
+      title: "2 Bedroom House",
+      location: "Campbeltown., Bluff Hill, Harare West, Harare",
+      price: "$100,000",
+      beds: 3,
+      baths: 2,
+      sqft: "150",
       featured: false,
       new: false,
-      image: "/estate.jpg"
+      image: "/bluffhull.webp"
     }
   ];
 

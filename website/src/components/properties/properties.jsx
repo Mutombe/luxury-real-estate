@@ -55,94 +55,50 @@ const PropertiesPage = () => {
   const properties = [
     {
       id: 1,
-      title: "Waterfront Villa",
+      title: "7 Roomed House",
       type: "House",
-      location: "Borrowdale, Harare",
-      price: 4500000,
-      beds: 5,
-      baths: 4,
-      sqft: 4200,
-      image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/villa2.webp')",
-      tags: ["Waterfront", "Pool", "Smart Home"],
+      location: "Chitungwiza, Mashonaland East",
+      price: 32000,
+      beds: 3,
+      baths: 2,
+      sqm: 200,
+      image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/unitk.webp')",
+      tags: ["House", "Home", "Walled"],
       isNew: true,
       rating: 4.9,
       reviews: 12
     },
     {
       id: 2,
-      title: "Apartment",
-      type: "Apartment",
-      location: "Hillside, Harare",
-      price: 3200000,
-      beds: 3,
-      baths: 3.5,
-      sqft: 2800,
-      image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/apart2.webp')",
-      tags: ["Penthouse", "Views", "Concierge"],
+      title: "4 Bedroomed House",
+      type: "House",
+      location: "Glenara Avenue, Highlands, Harare North, Harare",
+      price: 850000,
+      beds: 4,
+      baths: 2,
+      sqm: 4949,
+      image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/grenara.webp')",
+      tags: ["Swimming Pool", "Big Yard", "Borehole"],
       isNew: false,
       rating: 4.7,
       reviews: 8
     },
     {
       id: 3,
-      title: "Villa",
+      title: "2 Bedroom House",
       type: "House",
-      location: "Avondale, Harare",
-      price: 6700000,
-      beds: 6,
-      baths: 5,
-      sqft: 5600,
-      image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/villa2.webp')",
-      tags: ["Historic", "Garden", "Renovated"],
+      location: "Campbeltown., Bluff Hill, Harare West, Harare",
+      price: 100000,
+      beds: 3,
+      baths: 2,
+      sqm: 150,
+      image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/bluffhull.webp')",
+      tags: ["Paving", "Garden", "Renovated", "Parking Bay", "Good Zesa", "Fitted Kitchen"],
       isNew: true,
       rating: 4.8,
       reviews: 15
     },
-    {
-      id: 4,
-      title: "Modern Apartment",
-      type: "Apartment",
-      location: "Avondale, Harare",
-      price: 2900000,
-      beds: 2,
-      baths: 2,
-      sqft: 1800,
-      image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/apart2.webp')",
-      tags: ["Beachfront", "Ocean View", "Gym"],
-      isNew: false,
-      rating: 4.5,
-      reviews: 7
-    },
-    {
-      id: 5,
-      title: "Mountain Estate",
-      type: "Villa",
-      location: "Mutare",
-      price: 8500000,
-      beds: 7,
-      baths: 8,
-      sqft: 6900,
-      image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/estate2.jpg')",
-      tags: ["Mountain View", "Private", "Luxury"],
-      isNew: true,
-      rating: 5.0,
-      reviews: 21
-    },
-    {
-      id: 6,
-      title: "Elegant Urban Townhouse",
-      type: "House",
-      location: "Strathaven, Avondale, Harare",
-      price: 3800000,
-      beds: 4,
-      baths: 3.5,
-      sqft: 3200,
-      image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/house.webp')",
-      tags: ["Historic", "Renovated", "Garden"],
-      isNew: false,
-      rating: 4.6,
-      reviews: 9
-    }
+  
   ];
 
   // Handle scroll events
@@ -505,7 +461,7 @@ const PropertiesPage = () => {
                     </div>
                     <div className="flex items-center gap-1 text-gray-600">
                       <Square size={14} />
-                      <span>{property.sqft.toLocaleString()} ft²</span>
+                      <span>{property.sqm.toLocaleString()} ft²</span>
                     </div>
                   </div>
                   
