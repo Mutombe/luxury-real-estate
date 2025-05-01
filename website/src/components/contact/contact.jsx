@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from "react";
+import { motion } from "framer-motion";
 import {
   Phone,
   Mail,
@@ -15,16 +15,16 @@ import {
   Camera,
   Calendar,
   UserCircle,
-  MapPinned
-} from 'lucide-react';
+  MapPinned,
+} from "lucide-react";
 
 const ContactPage = () => {
   const [formState, setFormState] = useState({
-    name: '',
-    email: '',
-    phone: '',
-    subject: '',
-    message: '',
+    name: "",
+    email: "",
+    phone: "",
+    subject: "",
+    message: "",
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -38,65 +38,98 @@ const ContactPage = () => {
   const offices = [
     {
       city: "Harare",
-      address: "Suite 7, 1st Floor, G.T Bain Centre, 55 King George Rd, Avondale, Harare, Zimbabwe",
-      phone: "+263 77 260 6495",
+      address:
+        "Suite 7, 1st Floor, G.T Bain Centre, 55 King George Rd, Avondale, Harare, Zimbabwe",
+      phone: "+263 77 260 6495 || +263 77 562 5292",
       email: "info@luxuryrealestate.co.zw",
       hours: "Mon-Fri: 9:00 AM - 6:00 PM",
-      coordinates: [-17.8252, 31.0335] // Latitude, Longitude for Harare
+      coordinates: [-17.8022193, 31.0367266,17],
     },
   ];
 
-  // Initialize the map when component mounts
+  // Add Leaflet CSS and JS
   useEffect(() => {
-    // Initialize Leaflet map
-    const initMap = () => {
-      if (typeof window !== 'undefined' && !mapLoaded) {
-        // Check if Leaflet is available (it would be loaded via CDN)
-        if (window.L) {
-          // Create map instance
-          const mapInstance = window.L.map('map-container').setView([-19.0154, 29.1549], 6); // Center view on Zimbabwe
+    // Add Leaflet CSS
+    const linkElement = document.createElement("link");
+    linkElement.rel = "stylesheet";
+    linkElement.href =
+      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css";
+    document.head.appendChild(linkElement);
 
-          // Add OSM tile layer
-          window.L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-            attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-          }).addTo(mapInstance);
-
-          // Create a custom icon
-          const customIcon = window.L.icon({
-            iconUrl: '/api/placeholder/30/40',
-            iconSize: [30, 40],
-            iconAnchor: [15, 40],
-            popupAnchor: [0, -40]
-          });
-
-          // Add markers for each office
-          const markerList = offices.map((office, index) => {
-            const marker = window.L.marker(office.coordinates, { icon: customIcon })
-              .addTo(mapInstance)
-              .bindPopup(`<b>${office.city} Office</b><br>${office.address}<br>Phone: ${office.phone}`);
-            
-            return marker;
-          });
-
-          setMap(mapInstance);
-          setMarkers(markerList);
-          setMapLoaded(true);
-        }
-      }
-    };
-
-    // Initialize map after a delay to ensure DOM is ready
-    const timer = setTimeout(() => {
+    // Add Leaflet JS
+    const scriptElement = document.createElement("script");
+    scriptElement.src =
+      "https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js";
+    scriptElement.onload = () => {
+      // Once Leaflet is loaded, initialize the map
       initMap();
-    }, 1000);
+    };
+    document.body.appendChild(scriptElement);
 
     return () => {
-      clearTimeout(timer);
+      // Clean up
+      document.head.removeChild(linkElement);
+      document.body.removeChild(scriptElement);
       if (map) {
         map.remove();
       }
     };
   }, []);
+
+  // Initialize the map when Leaflet is loaded
+  const initMap = () => {
+    if (typeof window !== "undefined" && window.L && !mapLoaded) {
+      try {
+        // Create map instance
+        const mapInstance = window.L.map("map-container").setView(
+          [-17.8022193, 31.0367266, 17],
+          6
+        ); // Center view on Zimbabwe
+
+        // Add OSM tile layer
+        window.L.tileLayer(
+          "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+          {
+            attribution:
+              '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          }
+        ).addTo(mapInstance);
+
+        // Create a custom icon
+        const customIcon = window.L.icon({
+          iconUrl: "/location.svg",
+          iconSize: [30, 40],
+          iconAnchor: [15, 40],
+          popupAnchor: [0, -40],
+        });
+
+        // Add markers for each office
+        const markerList = offices.map((office, index) => {
+          const marker = window.L.marker(office.coordinates, {
+            icon: customIcon,
+          })
+            .addTo(mapInstance)
+            .bindPopup(
+              `<b>${office.city} Office</b><br>${office.address}<br>Phone: ${office.phone}`
+            );
+
+          return marker;
+        });
+
+        setMap(mapInstance);
+        setMarkers(markerList);
+        setMapLoaded(true);
+
+        // Focus on active office
+        if (offices[activeOffice]) {
+          mapInstance.setView(offices[activeOffice].coordinates, 13);
+          markerList[activeOffice].openPopup();
+        }
+      } catch (error) {
+        console.error("Error initializing map:", error);
+      }
+    }
+  };
 
   // Update map focus when active office changes
   useEffect(() => {
@@ -116,8 +149,8 @@ const ContactPage = () => {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const handleSubmit = (e) => {
@@ -126,11 +159,11 @@ const ContactPage = () => {
     setIsSubmitted(true);
     setTimeout(() => setIsSubmitted(false), 3000);
     setFormState({
-      name: '',
-      email: '',
-      phone: '',
-      subject: '',
-      message: '',
+      name: "",
+      email: "",
+      phone: "",
+      subject: "",
+      message: "",
     });
   };
 
@@ -142,13 +175,13 @@ const ContactPage = () => {
   };
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
     <div className="min-h-screen bg-gray-50 relative">
       {/* Header with Mobile Menu */}
-      
+
       {/* Mobile Menu Overlay */}
       {mobileMenuOpen && (
         <motion.div
@@ -161,29 +194,54 @@ const ContactPage = () => {
             <div className="flex justify-between items-center mb-8">
               <div className="flex items-center">
                 <Camera size={28} className="text-white mr-2" />
-                <span className="font-bold text-xl text-white">Luxury Real Estate</span>
+                <span className="font-bold text-xl text-white">
+                  Luxury Real Estate
+                </span>
               </div>
-              <button 
+              <button
                 className="text-white"
                 onClick={() => setMobileMenuOpen(false)}
               >
                 <X size={24} />
               </button>
             </div>
-            
+
             <nav className="flex-1">
               <ul className="space-y-6 text-center">
-                <li><a href="/" className="text-white text-xl block py-2">Home</a></li>
-                <li><a href="/properties/estates" className="text-white text-xl block py-2">Properties</a></li>
-                <li><a href="/contact" className="text-white text-xl block py-2">Agents</a></li>
-                <li><a href="/contact" className="text-red-400 text-xl font-medium block py-2">Contact</a></li>
+                <li>
+                  <a href="/" className="text-white text-xl block py-2">
+                    Home
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/properties/estates"
+                    className="text-white text-xl block py-2"
+                  >
+                    Properties
+                  </a>
+                </li>
+                <li>
+                  <a href="/contact" className="text-white text-xl block py-2">
+                    Agents
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/contact"
+                    className="text-red-400 text-xl font-medium block py-2"
+                  >
+                    Contact
+                  </a>
+                </li>
               </ul>
             </nav>
-            
+
             <div className="space-y-4 mt-auto">
               <div className="flex items-center justify-center gap-2 text-white">
                 <Phone size={18} />
                 <span>+263 77 260 6495</span>
+                <span>+263 77 562 5292</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-white">
                 <Mail size={18} />
@@ -209,9 +267,12 @@ const ContactPage = () => {
                 <span className="text-sm font-medium">Visit Us Today</span>
               </div>
             </div>
-            <h1 className="text-3xl md:text-5xl font-bold mb-6">Get in Touch</h1>
+            <h1 className="text-3xl md:text-5xl font-bold mb-6">
+              Get in Touch
+            </h1>
             <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-              We're here to help you with all your luxury real estate needs. Reach out to us today.
+              We're here to help you with all your luxury real estate needs.
+              Reach out to us today.
             </p>
           </motion.div>
         </div>
@@ -219,7 +280,7 @@ const ContactPage = () => {
 
       {/* Floating CTA Button */}
       <div className="fixed bottom-20 right-4 z-40 md:right-8">
-        <motion.a 
+        <motion.a
           href="#contact-form"
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
@@ -259,7 +320,7 @@ const ContactPage = () => {
                 </div>
                 <h2 className="text-2xl font-bold">Send Us a Message</h2>
               </div>
-              
+
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                   <div>
@@ -366,16 +427,18 @@ const ContactPage = () => {
               {/* Success Message */}
               <motion.div
                 initial={{ opacity: 0, height: 0 }}
-                animate={{ 
+                animate={{
                   opacity: isSubmitted ? 1 : 0,
-                  height: isSubmitted ? 'auto' : 0
+                  height: isSubmitted ? "auto" : 0,
                 }}
                 className="mt-4 overflow-hidden"
               >
                 {isSubmitted && (
                   <div className="bg-green-50 border border-green-200 rounded-lg p-4 flex items-center gap-2 text-green-700">
                     <CheckCircle size={20} />
-                    <span>Message sent successfully! We'll get back to you soon.</span>
+                    <span>
+                      Message sent successfully! We'll get back to you soon.
+                    </span>
                   </div>
                 )}
               </motion.div>
@@ -403,7 +466,9 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold">Phone</h3>
-                      <p className="text-gray-600">+263 77 562 5292</p>
+                      <p className="text-gray-600">
+                        +263 77 562 5292 || +263 77 260 6495
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
@@ -412,7 +477,9 @@ const ContactPage = () => {
                     </div>
                     <div>
                       <h3 className="font-semibold">Email</h3>
-                      <p className="text-gray-600">Info@luxuryrealestate.co.zw</p>
+                      <p className="text-gray-600">
+                        Info@luxuryrealestate.co.zw
+                      </p>
                     </div>
                   </div>
                   <div className="flex items-start gap-4 p-4 bg-gray-50 rounded-lg hover:bg-gray-100 transition-colors">
@@ -454,9 +521,9 @@ const ContactPage = () => {
                   key={index}
                   whileTap={{ scale: 0.95 }}
                   className={`px-4 py-3 rounded-lg flex-shrink-0 ${
-                    activeOffice === index 
-                      ? 'bg-red-600 text-white font-medium shadow-md' 
-                      : 'bg-white text-gray-700 hover:bg-gray-100'
+                    activeOffice === index
+                      ? "bg-red-600 text-white font-medium shadow-md"
+                      : "bg-white text-gray-700 hover:bg-gray-100"
                   }`}
                   onClick={() => setActiveOffice(index)}
                 >
@@ -470,7 +537,7 @@ const ContactPage = () => {
           </div>
 
           {/* Active Office Details */}
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             key={activeOffice}
@@ -478,7 +545,9 @@ const ContactPage = () => {
           >
             <div className="grid grid-cols-1 md:grid-cols-2">
               <div className="p-6 md:p-8">
-                <h3 className="font-bold text-xl mb-4">{offices[activeOffice].city} Office</h3>
+                <h3 className="font-bold text-xl mb-4">
+                  {offices[activeOffice].city} Office
+                </h3>
                 <div className="space-y-4 text-gray-600">
                   <div className="flex items-start gap-3">
                     <div className="bg-red-100 rounded-full p-2 mt-1">
@@ -512,17 +581,19 @@ const ContactPage = () => {
                       <Clock size={18} className="text-red-600" />
                     </div>
                     <div>
-                      <h4 className="font-medium text-gray-800">Working Hours</h4>
+                      <h4 className="font-medium text-gray-800">
+                        Working Hours
+                      </h4>
                       <p>{offices[activeOffice].hours}</p>
                     </div>
                   </div>
                 </div>
               </div>
-              
+
               {/* Small Map Preview */}
               <div className="bg-gray-100 min-h-64 flex items-center justify-center cursor-pointer relative overflow-hidden">
                 <div className="absolute inset-0 bg-black bg-opacity-20 hover:bg-opacity-0 transition-opacity z-10 flex items-center justify-center">
-                  <motion.div 
+                  <motion.div
                     whileHover={{ scale: 1.05 }}
                     className="bg-white rounded-lg px-4 py-2 shadow-lg flex items-center"
                   >
@@ -530,7 +601,7 @@ const ContactPage = () => {
                     <span className="font-medium">View on Map</span>
                   </motion.div>
                 </div>
-                <img 
+                <img
                   src={`/api/placeholder/800/600`}
                   alt={`${offices[activeOffice].city} Office`}
                   className="w-full h-full object-cover"
@@ -558,11 +629,15 @@ const ContactPage = () => {
 
           {/* Leaflet Map */}
           <div className="h-96 bg-gray-100 rounded-xl overflow-hidden shadow-lg relative">
+            {/* Map container needed for Leaflet to attach to */}
             <div id="map-container" className="w-full h-full"></div>
             {!mapLoaded && (
               <div className="absolute inset-0 flex items-center justify-center bg-gray-100">
                 <div className="flex flex-col items-center">
-                  <Building2 size={48} className="text-gray-400 animate-pulse" />
+                  <Building2
+                    size={48}
+                    className="text-gray-400 animate-pulse"
+                  />
                   <p className="mt-4 text-gray-500">Loading map...</p>
                 </div>
               </div>
@@ -582,9 +657,12 @@ const ContactPage = () => {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                 >
-                  <h2 className="text-3xl font-bold text-white mb-4">Ready to Find Your Dream Home?</h2>
+                  <h2 className="text-3xl font-bold text-white mb-4">
+                    Ready to Find Your Dream Home?
+                  </h2>
                   <p className="text-red-100 mb-8">
-                    Book a viewing with one of our expert real estate agents and start your journey to luxury living.
+                    Book a viewing with one of our expert real estate agents and
+                    start your journey to luxury living.
                   </p>
                   <motion.button
                     whileHover={{ scale: 1.05 }}
@@ -597,8 +675,8 @@ const ContactPage = () => {
                 </motion.div>
               </div>
               <div className="hidden md:block relative min-h-64">
-                <img 
-                  src="/api/placeholder/800/600"
+                <img
+                  src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c"
                   alt="Luxury Property"
                   className="w-full h-full object-cover"
                 />
@@ -607,9 +685,8 @@ const ContactPage = () => {
           </div>
         </div>
       </section>
-
     </div>
   );
-}
+};
 
 export default ContactPage;

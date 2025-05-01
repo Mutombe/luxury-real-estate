@@ -3,6 +3,38 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { useNavigate } from 'react-router-dom'
 import { Menu, X, Home, Building2, Info, Phone, Search, User, Bell, ChevronDown, MapPin, Calendar, Star } from 'lucide-react';
 
+ export function LuxuryRealEstateLogo() {
+  const [imageLoaded, setImageLoaded] = useState(false);
+  
+  // Handle image loading error by showing text backup
+  const handleImageError = () => {
+    setImageLoaded(false);
+  };
+  
+  return (
+    <motion.div
+      initial={{ opacity: 0, x: -20 }}
+      animate={{ opacity: 1, x: 0 }}
+      className="flex-shrink-0 flex items-center gap-3"
+    >
+      {/* Logo Image */}
+      <motion.div 
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        className="h-20 w-20 flex-shrink-0"
+      >
+        <img 
+          src="/logo.png" 
+          alt="Luxury Real Estate Logo" 
+          className="h-full w-full object-contain"
+          onError={handleImageError}
+        />
+      </motion.div>
+    
+    </motion.div>
+  );
+}
+
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const navigate = useNavigate()
@@ -113,14 +145,7 @@ const Navbar = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              className="flex-shrink-0 flex items-center"
-            >
-              <span className="font-serif text-2xl font-bold bg-gradient-to-r from-red-700 to-red-500 bg-clip-text text-transparent">Luxury</span>
-              <span className="font-serif text-2xl font-light text-gray-800"> Real Estate</span>
-            </motion.div>
+            <LuxuryRealEstateLogo />
 
             {/* Search button (mobile) */}
             <div className="md:hidden flex items-center space-x-2">

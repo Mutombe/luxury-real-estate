@@ -14,6 +14,7 @@ import {
   CheckCircle,
   X
 } from 'lucide-react';
+import { LuxuryRealEstateLogo } from '../navbar/navbar';
 
 const Footer = () => {
   const [email, setEmail] = useState('');
@@ -127,6 +128,7 @@ const Footer = () => {
               <div className="space-y-3">
                 <div className="flex items-center gap-3 text-gray-400">
                   <Phone size={18} />
+                  <span>+263 772 606 495</span><br />
                   <span>+263 77 562 5292</span>
                 </div>
                 <div className="flex items-center gap-3 text-gray-400">

@@ -1,0 +1,9 @@
+<svg viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background shape -->
+ 
+  
+  <!-- House icon -->
+  <path d="M95 85 L125 60 L155 85 L155 120 L95 120 Z" fill="red" />
+  <rect x="115" y="100" width="20" height="20" fill="black" />
+
+</svg>

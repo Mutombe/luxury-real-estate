@@ -148,124 +148,144 @@ const AboutPage = () => {
   const team = [
     {
       id: 1,
-      name: "Mr Mhute",
-      role: "CEO & Founder",
+      name: "Lazarus Mupenzwa",
+      role: "Principal Registered Estate Agent",
       image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/api/placeholder/500/600')",
-      bio: "15+ years of luxury real estate experience",
-      expertise: ["Waterfront Properties", "Luxury Estates", "Market Analysis"],
-      achievements: ["Top 1% of Agents Nationwide", "Multiple in Sales"],
-      quote: "Every home tells a unique story. Our job is to help you find the one that speaks to you.",
+      bio: "Holder of B-Tech Real Estate with UNISA with 15+ years of property industry experience",
+      expertise: ["Property Management", "Valuations", "Real Estate Consulting"],
+      achievements: ["Award-Winning Industry Expert", "Professional Property Management"],
+      quote: "Our professional approach ensures we exceed our clients' expectations.",
       social: {
         linkedin: "#",
         twitter: "#",
-        email: "mhute@luxuryestates.com"
+        email: "info@property.co.zw"
       }
     },
     {
       id: 2,
-      name: "Michael Muchara",
-      role: "Head of Sales",
+      name: "Collen Ngwenya",
+      role: "Property Manager",
       image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/api/placeholder/500/600')",
-      bio: "Top-performing agent for 5 consecutive years",
-      expertise: ["Urban Properties", "Investment Opportunities", "Negotiation"],
-      achievements: ["Multiple Career Sales", "Broker of the Year 2024"],
-      quote: "The right property isn't just an asset—it's a foundation for your future.",
+      bio: "Highly skilled and qualified in Real Estate Business",
+      expertise: ["Property Management", "Tenant Relations", "Property Maintenance"],
+      achievements: ["Expert Property Manager", "Team Leadership"],
+      quote: "We're committed to providing outstanding real estate services with integrity and excellence.",
       social: {
         linkedin: "#",
         twitter: "#",
-        email: "michael@luxuryestates.com"
+        email: "info@property.co.zw"
       }
     },
     {
       id: 3,
-      name: "Emily Maramba",
-      role: "Property Consultant",
+      name: "Akim Mhute",
+      role: "Sales Team Leader",
       image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/api/placeholder/500/600')",
-      bio: "Specialist in luxury waterfront properties",
-      expertise: ["Homes", "Vacation Properties", "Client Relations"],
-      achievements: ["Featured in Luxury Home Magazine", "Most Dedicated Agent Award"],
-      quote: "Finding your dream home is a journey, and I'm honored to be your guide.",
+      bio: "Highly qualified and experienced in property business",
+      expertise: ["Property Sales", "Negotiations", "Client Relations"],
+      achievements: ["Top Sales Performance", "Team Leadership Excellence"],
+      quote: "Every property transaction is a journey, and we're here to guide you through it.",
       social: {
         linkedin: "#",
         twitter: "#",
-        email: "emily@luxuryestates.com"
+        email: "info@property.co.zw"
       }
     },
-
+    {
+      id: 4,
+      name: "Tatenda Savanhu",
+      role: "Accountant/Bookkeeper",
+      image: "linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.2)), url('/api/placeholder/500/600')",
+      bio: "Highly qualified and experienced in accounting/bookkeeping",
+      expertise: ["Financial Management", "Bookkeeping", "Administration"],
+      achievements: ["Finalizing Professional Articles", "Financial Excellence"],
+      quote: "Transparent financial management is the backbone of successful property business.",
+      social: {
+        linkedin: "#",
+        twitter: "#",
+        email: "info@property.co.zw"
+      }
+    }
   ];
+
 
   const milestones = [
     {
-      year: 2008,
-      title: "Founded in Harare",
-      description: "Started with a team of 3 agents specializing in Flat properties."
-    },
-    {
-      year: 2012,
-      title: "Expansion to Harare",
-      description: "Opened our second office in Avondale's Upper East Side."
+      year: 2010,
+      title: "Company Founded",
+      description: "Established with a vision to provide exceptional real estate services."
     },
     {
       year: 2015,
-      title: "Multiple Sales Milestone",
-      description: "Made a lot sales within our first 7 years."
+      title: "Portfolio Expansion",
+      description: "Grew our management portfolio to include premium commercial properties."
     },
     {
       year: 2018,
-      title: "Partnerships",
-      description: "Established exclusive partnerships with luxury brokerages in Harare."
+      title: "Service Diversification",
+      description: "Expanded services to include property development consulting."
     },
     {
       year: 2021,
       title: "Digital Transformation",
-      description: "Launched our virtual reality property tours during the pandemic."
+      description: "Enhanced our technology platforms for better client service."
     },
     {
-      year: 2024,
+      year: 2023,
+      title: "Market Leadership",
+      description: "Positioned as a leading real estate firm in Zimbabwe."
+    },
+    {
+      year: 2025,
       title: "Today",
-      description: "Operating in 5 major cities with a team of over 10 elite agents."
+      description: "Managing 40+ properties with a focus on client satisfaction and excellence."
     }
   ];
 
   const values = [
     {
-      title: "Excellence",
-      description: "We maintain the highest standards in every aspect of our service",
-      icon: <Award className="w-6 h-6" />
-    },
-    {
       title: "Integrity",
-      description: "Trust and transparency are the foundations of our business",
+      description: "We conduct all business with honesty and transparency",
       icon: <CheckCheck className="w-6 h-6" />
     },
     {
-      title: "Innovation",
-      description: "Embracing new technologies to provide better service",
-      icon: <Sparkles className="w-6 h-6" />
+      title: "Excellence",
+      description: "We strive for the highest standards in all our services",
+      icon: <Award className="w-6 h-6" />
     },
     {
-      title: "Client-Focused",
-      description: "Your success and satisfaction are our top priorities",
+      title: "Respect",
+      description: "We value our clients and treat them with the utmost consideration",
       icon: <Heart className="w-6 h-6" />
+    },
+    {
+      title: "Teamwork",
+      description: "We collaborate effectively to deliver the best results",
+      icon: <Users className="w-6 h-6" />
+    },
+    {
+      title: "Responsiveness",
+      description: "We address our clients' needs promptly and efficiently",
+      icon: <Sparkles className="w-6 h-6" />
     }
   ];
 
   const faqs = [
     {
-      question: "What areas do you specialize in?",
-      answer: "We specialize in luxury properties in major metropolitan areas, with particular expertise in waterfront properties, penthouses, and historic estates. Our primary markets include Miami, New York, Los Angeles, and San Francisco, but we work with select properties nationwide."
+      question: "What types of properties do you manage?",
+      answer: "We manage a diverse portfolio including residential properties, commercial properties, industrial properties, and plots and stands. Currently, we have 10 commercial properties and 30 residential upmarket properties under our management, with 15 more properties pending."
     },
     {
-      question: "How do you determine property valuation?",
-      answer: "Our valuation process combines comprehensive market analysis, proprietary data on luxury trends, and our intimate knowledge of each neighborhood. We consider factors like comparable sales, unique features, market conditions, and potential for appreciation."
+      question: "What property management services do you offer?",
+      answer: "Our comprehensive management services include market rent assessments, regular rent reviews, lease negotiations, property maintenance, routine property inspections, dilapidation inspection reports, rent collection and disbursements, property reports, and expert investment advice."
     },
     {
-      question: "What makes your agency different?",
-      answer: "Unlike traditional brokerages, we provide a fully integrated luxury experience. Each client works with a dedicated team of specialists, receives personalized marketing plans, and gains access to our exclusive network of high-net-worth buyers and investors."
+      question: "What are your management commission rates?",
+      answer: "Our management commission ranges from 10% to 15% for both residential and commercial properties. These rates are subject to negotiation depending on the amount of business and the property market conditions. All our commissions follow the Estate Agents Council scale of fees."
     },
     {
-      question: "Do you work with international clients?",
-      answer: "Absolutely. We have a dedicated international division with multilingual agents and partnerships with premier brokerages worldwide. We offer virtual tours, secure digital transactions, and assistance with immigration and investment considerations."
+      question: "What types of valuations do you conduct?",
+      answer: "We conduct valuations for various purposes including rental, insurance, sales, acquisition, accounts, and liquidation. Our team provides professional and accurate assessments based on market conditions and property specifications."
     }
   ];
 
@@ -563,7 +583,7 @@ const AboutPage = () => {
               Redefining Luxury Real Estate
             </h1>
             <p className="text-base text-gray-300 mb-8">
-              With over 15 years of excellence, we've helped thousands find their dream homes
+              With over 15 years of excellence, we've helped many find their dream homes
             </p>
             
             <div className="flex gap-2 justify-center">
