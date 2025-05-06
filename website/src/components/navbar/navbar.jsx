@@ -1,16 +1,30 @@
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { useNavigate } from 'react-router-dom'
-import { Menu, X, Home, Building2, Info, Phone, Search, User, Bell, ChevronDown, MapPin, Calendar, Star } from 'lucide-react';
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { useNavigate } from "react-router-dom";
+import {
+  Menu,
+  X,
+  Home,
+  Building2,
+  Info,
+  Phone,
+  Search,
+  User,
+  Bell,
+  ChevronDown,
+  MapPin,
+  Calendar,
+  Star,
+} from "lucide-react";
 
- export function LuxuryRealEstateLogo() {
+export function LuxuryRealEstateLogo() {
   const [imageLoaded, setImageLoaded] = useState(false);
-  
+
   // Handle image loading error by showing text backup
   const handleImageError = () => {
     setImageLoaded(false);
   };
-  
+
   return (
     <motion.div
       initial={{ opacity: 0, x: -20 }}
@@ -18,26 +32,25 @@ import { Menu, X, Home, Building2, Info, Phone, Search, User, Bell, ChevronDown,
       className="flex-shrink-0 flex items-center gap-3"
     >
       {/* Logo Image */}
-      <motion.div 
+      <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         className="h-26 w-26 flex-shrink-0"
       >
-        <img 
-          src="/logo.png" 
-          alt="Luxury Real Estate Logo" 
+        <img
+          src="/logo.png"
+          alt="Luxury Real Estate Logo"
           className="h-full w-full object-contain"
           onError={handleImageError}
         />
       </motion.div>
-    
     </motion.div>
   );
 }
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
@@ -48,8 +61,8 @@ const Navbar = () => {
       setScrolled(isScrolled);
     };
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   const toggleDropdown = (name) => {
@@ -57,38 +70,40 @@ const Navbar = () => {
   };
 
   const navLinks = [
-    { 
-      name: 'Home', 
-      icon: <Home size={18} />, 
-      path: '/' 
+    {
+      name: "Home",
+      icon: <Home size={18} />,
+      path: "/",
     },
-    { 
-      name: 'Properties', 
-      icon: <Building2 size={18} />, 
-      path: '/properties',
+    {
+      name: "Properties",
+      icon: <Building2 size={18} />,
+      path: "/properties",
       dropdown: true,
-      items: ['Homes', 'Flats', 'Villas', 'Estates']
+      items: ["Homes", "Flats", "Villas", "Estates"],
     },
-    { 
-      name: 'About', 
-      icon: <Info size={18} />, 
-      path: '/about' 
+    {
+      name: "About",
+      icon: <Info size={18} />,
+      path: "/about",
     },
-    { 
-      name: 'Contact', 
-      icon: <Phone size={18} />, 
-      path: '/contact' 
+    {
+      name: "Contact",
+      icon: <Phone size={18} />,
+      path: "/contact",
     },
   ];
 
-  const featuredLocations = ['Harare', 'Mutare', 'Bulawayo', 'Kwekwe'];
+  const featuredLocations = ["Harare", "Mutare", "Bulawayo", "Kwekwe"];
 
   return (
     <>
       {/* Top Bar */}
-      <div className={`w-full transition-all duration-300 ${
-        scrolled ? 'bg-gray-900 border-b border-gray-800' : 'bg-gray-900'
-      }`}>
+      <div
+        className={`w-full transition-all duration-300 ${
+          scrolled ? "bg-gray-900 border-b border-gray-800" : "bg-gray-900"
+        }`}
+      >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-10 text-xs md:text-sm">
             <div className="flex items-center space-x-4">
@@ -103,18 +118,18 @@ const Navbar = () => {
               </div>
             </div>
             <div className="flex items-center space-x-4">
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={()=>navigate("/contact")}
+                onClick={() => navigate("/contact")}
                 className="text-gray-300 hover:text-white transition-colors duration-200 hidden md:flex items-center"
               >
                 <Calendar size={14} className="mr-1" />
                 <span>Schedule Tour</span>
               </motion.button>
-              <motion.button 
+              <motion.button
                 whileHover={{ scale: 1.05 }}
-                onClick={()=>navigate("/contact")}
+                onClick={() => navigate("/contact")}
                 whileTap={{ scale: 0.95 }}
                 className="text-gray-300 hover:text-white transition-colors duration-200 hidden md:flex items-center"
               >
@@ -123,7 +138,7 @@ const Navbar = () => {
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.05 }}
-                onClick={()=>navigate("/contact")}
+                onClick={() => navigate("/contact")}
                 whileTap={{ scale: 0.95 }}
                 className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center"
               >
@@ -134,13 +149,15 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-      
+
       {/* Main Navbar */}
       <nav
         className={`fixed w-full z-50 transition-all duration-300 ${
-          scrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-white/80 backdrop-blur-sm'
+          scrolled
+            ? "bg-white/95 backdrop-blur-md shadow-lg"
+            : "bg-white/80 backdrop-blur-sm"
         }`}
-        style={{ top: scrolled ? '0' : '2.5rem' }}
+        style={{ top: scrolled ? "0" : "2.5rem" }}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 md:h-20">
@@ -156,7 +173,7 @@ const Navbar = () => {
               >
                 <Search size={18} />
               </motion.button>
-              
+
               <motion.button
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setIsOpen(!isOpen)}
@@ -180,9 +197,14 @@ const Navbar = () => {
                       >
                         {link.icon}
                         <span className="ml-1">{link.name}</span>
-                        <ChevronDown size={16} className={`ml-1 transition-transform ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
+                        <ChevronDown
+                          size={16}
+                          className={`ml-1 transition-transform ${
+                            activeDropdown === link.name ? "rotate-180" : ""
+                          }`}
+                        />
                       </motion.button>
-                      
+
                       <AnimatePresence>
                         {activeDropdown === link.name && (
                           <motion.div
@@ -195,7 +217,9 @@ const Navbar = () => {
                               <motion.a
                                 key={item}
                                 whileHover={{ x: 5 }}
-                                href={`${link.path}/${item.toLowerCase().replace(' ', '-')}`}
+                                href={`${link.path}/${item
+                                  .toLowerCase()
+                                  .replace(" ", "-")}`}
                                 className="block px-4 py-2 text-sm text-gray-700 hover:bg-red-50 hover:text-red-600"
                               >
                                 {item}
@@ -218,11 +242,11 @@ const Navbar = () => {
                   )}
                 </div>
               ))}
-              
-              <motion.button 
+
+              <motion.button
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                onClick={()=>navigate("/contact")}
+                onClick={() => navigate("/contact")}
                 className="ml-2 px-4 py-2 bg-gradient-to-r from-red-700 to-red-500 text-white rounded-md shadow-md hover:shadow-lg transition-all duration-300"
               >
                 Schedule Viewing
@@ -232,12 +256,15 @@ const Navbar = () => {
             {/* Search area (desktop) */}
             <div className="hidden md:flex items-center">
               <div className="relative">
-                <input 
-                  type="text" 
-                  placeholder="Search properties..." 
+                <input
+                  type="text"
+                  placeholder="Search properties..."
                   className="pl-10 pr-4 py-2 rounded-full border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent w-40 lg:w-64 text-sm"
                 />
-                <Search size={16} className="absolute left-3 top-2.5 text-gray-400" />
+                <Search
+                  size={16}
+                  className="absolute left-3 top-2.5 text-gray-400"
+                />
               </div>
             </div>
           </div>
@@ -248,23 +275,28 @@ const Navbar = () => {
           {searchOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden bg-white border-t border-gray-200 p-4"
             >
               <div className="relative">
-                <input 
-                  type="text" 
-                  placeholder="Search luxury properties..." 
+                <input
+                  type="text"
+                  placeholder="Search luxury properties..."
                   className="w-full pl-10 pr-4 py-3 rounded-lg border border-gray-300 focus:outline-none focus:ring-2 focus:ring-red-500 focus:border-transparent"
                 />
-                <Search size={18} className="absolute left-3 top-3.5 text-gray-400" />
+                <Search
+                  size={18}
+                  className="absolute left-3 top-3.5 text-gray-400"
+                />
               </div>
-              
+
               <div className="mt-4">
-                <p className="text-xs text-gray-500 mb-2">Featured Locations:</p>
+                <p className="text-xs text-gray-500 mb-2">
+                  Featured Locations:
+                </p>
                 <div className="flex flex-wrap gap-2">
-                  {featuredLocations.map(location => (
+                  {featuredLocations.map((location) => (
                     <motion.button
                       key={location}
                       whileTap={{ scale: 0.95 }}
@@ -284,7 +316,7 @@ const Navbar = () => {
           {isOpen && (
             <motion.div
               initial={{ opacity: 0, height: 0 }}
-              animate={{ opacity: 1, height: 'auto' }}
+              animate={{ opacity: 1, height: "auto" }}
               exit={{ opacity: 0, height: 0 }}
               className="md:hidden bg-white border-t border-gray-200"
             >
@@ -299,17 +331,24 @@ const Navbar = () => {
                           className="w-full flex items-center justify-between px-3 py-3 rounded-md text-gray-800"
                         >
                           <div className="flex items-center">
-                            <span className="bg-red-50 p-2 rounded-full text-red-600 mr-3">{link.icon}</span>
+                            <span className="bg-red-50 p-2 rounded-full text-red-600 mr-3">
+                              {link.icon}
+                            </span>
                             <span>{link.name}</span>
                           </div>
-                          <ChevronDown size={16} className={`transition-transform ${activeDropdown === link.name ? 'rotate-180' : ''}`} />
+                          <ChevronDown
+                            size={16}
+                            className={`transition-transform ${
+                              activeDropdown === link.name ? "rotate-180" : ""
+                            }`}
+                          />
                         </motion.button>
-                        
+
                         <AnimatePresence>
                           {activeDropdown === link.name && (
                             <motion.div
                               initial={{ opacity: 0, height: 0 }}
-                              animate={{ opacity: 1, height: 'auto' }}
+                              animate={{ opacity: 1, height: "auto" }}
                               exit={{ opacity: 0, height: 0 }}
                               className="pl-12 pr-3 py-2 space-y-1"
                             >
@@ -318,7 +357,9 @@ const Navbar = () => {
                                   key={item}
                                   whileHover={{ x: 5 }}
                                   whileTap={{ scale: 0.98 }}
-                                  href={`${link.path}/${item.toLowerCase().replace(' ', '-')}`}
+                                  href={`${link.path}/${item
+                                    .toLowerCase()
+                                    .replace(" ", "-")}`}
                                   className="block py-2 text-sm text-gray-600 border-l-2 border-gray-200 pl-3 hover:border-red-500 hover:text-red-600"
                                 >
                                   {item}
@@ -334,13 +375,15 @@ const Navbar = () => {
                         href={link.path}
                         className="flex items-center px-3 py-3 rounded-md text-gray-800"
                       >
-                        <span className="bg-red-50 p-2 rounded-full text-red-600 mr-3">{link.icon}</span>
+                        <span className="bg-red-50 p-2 rounded-full text-red-600 mr-3">
+                          {link.icon}
+                        </span>
                         <span>{link.name}</span>
                       </motion.a>
                     )}
                   </div>
                 ))}
-                
+
                 <div className="pt-4 pb-2">
                   <motion.a
                     whileTap={{ scale: 0.95 }}
@@ -350,7 +393,7 @@ const Navbar = () => {
                     Schedule Viewing
                   </motion.a>
                 </div>
-                
+
                 <div className="py-4">
                   <div className="flex items-center justify-between px-3">
                     <motion.a
@@ -361,7 +404,7 @@ const Navbar = () => {
                       <User size={16} className="mr-1" />
                       <span>Login</span>
                     </motion.a>
-                    
+
                     <motion.a
                       whileTap={{ scale: 0.95 }}
                       href="/contact"
