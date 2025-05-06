@@ -21,7 +21,7 @@ import { Menu, X, Home, Building2, Info, Phone, Search, User, Bell, ChevronDown,
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        className="h-20 w-20 flex-shrink-0"
+        className="h-26 w-26 flex-shrink-0"
       >
         <img 
           src="/logo.png" 
