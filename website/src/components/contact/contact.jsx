@@ -17,6 +17,7 @@ import {
   UserCircle,
   MapPinned,
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const ContactPage = () => {
   const [formState, setFormState] = useState({
@@ -40,9 +41,10 @@ const ContactPage = () => {
       city: "Harare",
       address:
         "Suite 7, 1st Floor, G.T Bain Centre, 55 King George Rd, Avondale, Harare, Zimbabwe",
-      phone: "+263 77 260 6495 || +263 77 562 5292",
+      phone: "+263 77 260 6495",
+      Whatsapp: '+447471309230',
       email: "info@luxuryrealestate.co.zw",
-      hours: "Mon-Fri: 9:00 AM - 6:00 PM",
+      hours: "Mon-Fri: 8:00 AM - 4:30 PM",
       coordinates: [-17.8022193, 31.0367266,17],
     },
   ];
@@ -241,7 +243,7 @@ const ContactPage = () => {
               <div className="flex items-center justify-center gap-2 text-white">
                 <Phone size={18} />
                 <span>+263 77 260 6495</span>
-                <span>+263 77 562 5292</span>
+                <span>+447471309230</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-white">
                 <Mail size={18} />
@@ -467,7 +469,7 @@ const ContactPage = () => {
                     <div>
                       <h3 className="font-semibold">Phone</h3>
                       <p className="text-gray-600">
-                        +263 77 562 5292 || +263 77 260 6495
+                        +263 77 562 5292 || +447471309230
                       </p>
                     </div>
                   </div>
@@ -565,6 +567,15 @@ const ContactPage = () => {
                     <div>
                       <h4 className="font-medium text-gray-800">Phone</h4>
                       <p>{offices[activeOffice].phone}</p>
+                    </div>
+                  </div>
+                  <div className="flex items-start gap-3">
+                    <div className="bg-red-100 rounded-full p-2 mt-1">
+                      <FaWhatsapp size={18} className="text-red-600" />
+                    </div>
+                    <div>
+                      <h4 className="font-medium text-gray-800">Whatsapp</h4>
+                      <p>{offices[activeOffice].Whatsapp}</p>
                     </div>
                   </div>
                   <div className="flex items-start gap-3">
