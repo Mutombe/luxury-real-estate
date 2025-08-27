@@ -42,7 +42,7 @@ const ContactPage = () => {
       address:
         "Suite 7, 1st Floor, G.T Bain Centre, 55 King George Rd, Avondale, Harare, Zimbabwe",
       phone: "+263 77 260 6495",
-      Whatsapp: '+447471309230',
+      Whatsapp: '+263775625292',
       email: "info@luxuryrealestate.co.zw",
       hours: "Mon-Fri: 8:00 AM - 4:30 PM",
       coordinates: [-17.8022193, 31.0367266,17],
@@ -243,7 +243,7 @@ const ContactPage = () => {
               <div className="flex items-center justify-center gap-2 text-white">
                 <Phone size={18} />
                 <span>+263 77 260 6495</span>
-                <span>+447471309230</span>
+                <span>+263 77 562 5292</span>
               </div>
               <div className="flex items-center justify-center gap-2 text-white">
                 <Mail size={18} />
@@ -469,7 +469,7 @@ const ContactPage = () => {
                     <div>
                       <h3 className="font-semibold">Phone</h3>
                       <p className="text-gray-600">
-                        +263 77 562 5292 || +447471309230
+                        +263 77 562 5292
                       </p>
                     </div>
                   </div>
