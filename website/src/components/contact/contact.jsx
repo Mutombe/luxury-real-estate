@@ -41,8 +41,8 @@ const ContactPage = () => {
       city: "Harare",
       address:
         "Suite 7, 1st Floor, G.T Bain Centre, 55 King George Rd, Avondale, Harare, Zimbabwe",
-      phone: "+263 77 260 6495",
-      Whatsapp: '+263775625292',
+      phone: "+263 77 562 5292",
+      Whatsapp: '+263772606495',
       email: "info@luxuryrealestate.co.zw",
       hours: "Mon-Fri: 8:00 AM - 4:30 PM",
       coordinates: [-17.8022193, 31.0367266,17],
